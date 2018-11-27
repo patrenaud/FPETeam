@@ -64,6 +64,7 @@
      <Compile Include="Assets\_Complete-Game\Scripts\Done_RandomRotator.cs" />
      <Compile Include="Assets\_Complete-Game\Scripts\Done_WeaponController.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <None Include="Assets\StarSparrow\ReadMe.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Users/1810057/Desktop/FPETeam/FPETeam/SpaceShooter/SpaceShooter/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
