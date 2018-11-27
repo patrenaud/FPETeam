@@ -1,0 +1,15 @@
+Temp/
+Obj/
+UnityGenerated/
+Library/
+.vs/
+
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.sln
+*.suo
+*.user
+*.unityproj
+*.booproj
