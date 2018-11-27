@@ -1,2 +1,15 @@
+Temp/
+Obj/
+UnityGenerated/
+Library/
+.vs/
 
-SpaceShooter/SpaceShooter/.vs/*
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.sln
+*.suo
+*.user
+*.unityproj
+*.booproj
