@@ -15,8 +15,8 @@ public class SpawnShip : MonoBehaviour
         }
         else
         {
-            Instantiate(GameManager.Instance.P1Ship, m_Transforms[0]);
-            Instantiate(GameManager.Instance.P1Ship, m_Transforms[1]);
+            Instantiate(GameManager.Instance.P1Ship, m_Transforms[0].position, Quaternion.identity);
+            Instantiate(GameManager.Instance.P2Ship, m_Transforms[1].position, Quaternion.identity);
         }
     }
 }
