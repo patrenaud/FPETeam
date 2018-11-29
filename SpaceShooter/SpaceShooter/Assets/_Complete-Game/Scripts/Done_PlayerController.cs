@@ -2,48 +2,75 @@
 using System.Collections;
 
 [System.Serializable]
-public class Done_Boundary 
+public class Done_Boundary
 {
-	public float xMin, xMax, zMin, zMax;
+    public float xMin, xMax, zMin, zMax;
 }
 
 public class Done_PlayerController : MonoBehaviour
 {
-	public float speed;
-	public float tilt;
-	public Done_Boundary boundary;
+    [SerializeField]
+    private float m_Tilt;
 
-	public GameObject shot;
-	public Transform shotSpawn;
-	public float fireRate;
-	 
-	private float nextFire;
-	
-	void Update ()
-	{
-		if (Input.GetButton("Fire1") && Time.time > nextFire) 
-		{
-			nextFire = Time.time + fireRate;
-			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-			GetComponent<AudioSource>().Play();
-		}
-	}
+    [SerializeField]
+    private ShipData m_ShipData;
 
-	void FixedUpdate ()
-	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+    [SerializeField]
+    private Done_Boundary m_Boundary;
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		GetComponent<Rigidbody>().velocity = movement * speed;
-		
-		GetComponent<Rigidbody>().position = new Vector3
-		(
-			Mathf.Clamp (GetComponent<Rigidbody>().position.x, boundary.xMin, boundary.xMax), 
-			0.0f, 
-			Mathf.Clamp (GetComponent<Rigidbody>().position.z, boundary.zMin, boundary.zMax)
-		);
-		
-		GetComponent<Rigidbody>().rotation = Quaternion.Euler (0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
-	}
+    [SerializeField]
+    private GameObject m_Shot;
+
+    [SerializeField]
+    private Transform m_ShotSpawn;
+
+    private float m_Speed;
+    private float m_FireRate;
+    private float m_Shield;
+    private float m_NextFire;
+
+    private void Start()
+    {
+        m_Speed = m_ShipData.Speed;
+        m_FireRate = m_ShipData.RateOfFire;
+        m_Shield = m_ShipData.Shield;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButton("Fire1") && Time.time > m_NextFire)
+        {
+            m_NextFire = Time.time + m_FireRate;
+            Instantiate(m_Shot, m_ShotSpawn.position, m_ShotSpawn.rotation);
+            GetComponent<AudioSource>().Play();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        GetComponent<Rigidbody>().velocity = movement * m_Speed;
+
+        GetComponent<Rigidbody>().position = new Vector3
+        (
+            Mathf.Clamp(GetComponent<Rigidbody>().position.x, m_Boundary.xMin, m_Boundary.xMax),
+            0.0f,
+            Mathf.Clamp(GetComponent<Rigidbody>().position.z, m_Boundary.zMin, m_Boundary.zMax)
+        );
+
+        GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -m_Tilt);
+    }
+
+    public void ReceiveHit()
+    {
+        m_Shield--;
+        if (m_Shield <= 0)
+        {
+            Destroy(gameObject);
+            //call to gamecontroller to remove himself;
+        }
+    }
 }
