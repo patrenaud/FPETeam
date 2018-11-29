@@ -13,3 +13,7 @@ UnityGenerated
 *.user
 *.unityproj
 *.booproj
+*.csproj
+*.csproj
+obj
+.vscode
