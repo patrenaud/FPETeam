@@ -20,6 +20,8 @@ public class Done_GameController : MonoBehaviour
     private bool restart;
     private int score;
 
+    private int m_WaveCount = 3;
+
     void Start()
     {
         gameOver = false;
@@ -56,6 +58,15 @@ public class Done_GameController : MonoBehaviour
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
+
+            // This is to make levelss
+            m_WaveCount --;
+            if(m_WaveCount == 0)
+            {
+                break;
+                // Return to ship selection
+            }
+
 
             if (gameOver)
             {
