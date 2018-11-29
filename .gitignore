@@ -1,8 +1,8 @@
-Temp/
-Obj/
-UnityGenerated/
-Library/
-.vs/
+Library
+Temp
+Obj
+UnityGenerated
+.vs
 
 *.svd
 *.userprefs
@@ -13,3 +13,7 @@ Library/
 *.user
 *.unityproj
 *.booproj
+*.csproj
+*.csproj
+obj
+.vscode
