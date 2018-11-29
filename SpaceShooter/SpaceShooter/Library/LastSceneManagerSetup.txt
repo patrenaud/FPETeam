@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/_Complete-Game/Scenes/PatTest.unity
-  isLoaded: 1
-  isActive: 1
