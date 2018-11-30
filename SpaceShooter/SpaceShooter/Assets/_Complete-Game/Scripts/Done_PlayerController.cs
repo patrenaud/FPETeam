@@ -13,9 +13,6 @@ public class Done_PlayerController : DamageableEntity
     private float m_Tilt;
 
     [SerializeField]
-    private ShipData m_ShipData;
-
-    [SerializeField]
     private Done_Boundary m_Boundary;
 
     [SerializeField]
@@ -25,17 +22,7 @@ public class Done_PlayerController : DamageableEntity
     private Transform m_ShotSpawn;
 
     private EPlayerID m_ID = (EPlayerID)1;
-
-    private float m_Speed;
-    private float m_FireRate;
     private float m_NextFire;
-
-    private void Start()
-    {
-        m_Speed = m_ShipData.Speed;
-        m_FireRate = m_ShipData.RateOfFire;
-        m_Shield = m_ShipData.Shield;
-    }
 
     public void Init(EPlayerID a_ID)
     {

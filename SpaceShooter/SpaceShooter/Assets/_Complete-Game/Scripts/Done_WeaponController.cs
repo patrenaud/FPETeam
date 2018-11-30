@@ -5,12 +5,11 @@ public class Done_WeaponController : DamageableEntity
 {
     public GameObject shot;
     public Transform shotSpawn;
-    public float fireRate;
     public float delay;
 
     void Start()
     {
-        InvokeRepeating("Fire", delay, fireRate);
+        InvokeRepeating("Fire", delay, m_FireRate);
     }
 
     void Fire()
