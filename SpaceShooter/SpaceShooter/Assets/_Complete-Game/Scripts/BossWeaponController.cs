@@ -27,7 +27,6 @@ public class BossWeaponController : MonoBehaviour
 		InvokeRepeating ("Fire", delay, fireRate);
 		InvokeRepeating ("FireRight", delay, fireRate);
 		InvokeRepeating ("FireLeft", delay, fireRate);
-
 	}
 
 	private void Update()
