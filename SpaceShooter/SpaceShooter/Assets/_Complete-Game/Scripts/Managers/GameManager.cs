@@ -5,6 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private bool m_IsSingle = true;
+    private bool[] m_ShipAvailable = { true, true, false };
+
+    private int m_Score = 0;
+
     private GameObject m_P1Ship = null;
     private GameObject m_P2Ship = null;
 
@@ -12,6 +16,11 @@ public class GameManager : MonoBehaviour
     {
         get { return m_IsSingle; }
         set { m_IsSingle = value; }
+    }
+    public bool[] ShipAvailable
+    {
+        get { return m_ShipAvailable; }
+        set { ShipAvailable = value; }
     }
 
     public GameObject P1Ship
@@ -42,5 +51,10 @@ public class GameManager : MonoBehaviour
             m_Instance = this;
         }
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void AddScore(int newScoreValue)
+    {
+        m_Score += newScoreValue;
     }
 }

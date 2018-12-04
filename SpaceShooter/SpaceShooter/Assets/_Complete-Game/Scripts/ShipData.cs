@@ -8,6 +8,7 @@ public class ShipData : ScriptableObject
     [SerializeField] private float m_RateOfFire = 1f;
     [SerializeField] private float m_Speed = 1f;
     [SerializeField] private float m_Shield = 1f;
+    [SerializeField] private int m_Score = 0;
 
     public float RateOfFire
     {
@@ -22,5 +23,10 @@ public class ShipData : ScriptableObject
     public float Shield
     {
         get { return m_Shield; }
+    }
+
+    public int Score
+    {
+        get { return m_Score; }
     }
 }

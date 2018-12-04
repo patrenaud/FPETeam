@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossWeaponController : MonoBehaviour 
+public class BossWeaponController : DamageableEntity 
 {
-	[SerializeField]
-	private GameObject m_Boss;
 	[SerializeField]
 	private Transform leftshotSpawn;
 	[SerializeField]
@@ -17,16 +15,14 @@ public class BossWeaponController : MonoBehaviour
 
 	public GameObject shot;
 	public Transform shotSpawn;	
-	
-	public float fireRate;
-	public float delay;
 
+	public float delay;
 
 	private void Start ()
 	{
-		InvokeRepeating ("Fire", delay, fireRate);
-		InvokeRepeating ("FireRight", delay, fireRate);
-		InvokeRepeating ("FireLeft", delay, fireRate);
+		InvokeRepeating ("Fire", delay, m_FireRate);
+		InvokeRepeating ("FireRight", delay, m_FireRate);
+		InvokeRepeating ("FireLeft", delay, m_FireRate);
 
 	}
 
