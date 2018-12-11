@@ -5,13 +5,16 @@ public class Done_DestroyByContact : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "Enemy")
+        if (other.tag != "Boundary")
         {
-            DamageableEntity player;
-            player = other.GetComponent<DamageableEntity>();
-            player.ReceiveHit();
-        }
+            if ((other.tag == "Player" || other.tag == "Enemy"))
+            {
+                DamageableEntity player;
+                player = other.GetComponent<DamageableEntity>();
+                player.ReceiveHit();
+            }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

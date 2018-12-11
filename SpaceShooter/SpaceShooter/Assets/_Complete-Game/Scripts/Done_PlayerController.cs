@@ -56,4 +56,17 @@ public class Done_PlayerController : DamageableEntity
 
         GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -m_Tilt);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Boundary")
+        {
+            if (other.tag == "Enemy")
+            {
+                m_Shield = 1;
+                ReceiveHit();
+            }
+            Destroy(other.gameObject);
+        }
+    }
 }
