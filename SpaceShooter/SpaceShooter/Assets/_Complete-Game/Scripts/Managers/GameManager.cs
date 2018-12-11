@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     private GameObject m_P1Ship = null;
     private GameObject m_P2Ship = null;
 
+    public int Score
+    {
+        get { return m_Score; }
+        set { m_Score = value; }
+    }
+
     public bool IsSingle
     {
         get { return m_IsSingle; }

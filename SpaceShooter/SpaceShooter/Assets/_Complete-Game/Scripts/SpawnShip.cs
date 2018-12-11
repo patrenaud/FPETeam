@@ -11,12 +11,12 @@ public class SpawnShip : MonoBehaviour
     {
 		if(GameManager.Instance.IsSingle)
         {
-            Instantiate(GameManager.Instance.P1Ship, Vector3.zero, Quaternion.identity);
+            Instantiate(GameManager.Instance.P1Ship, Vector3.zero, Quaternion.identity).GetComponent<Done_PlayerController>().Init(EPlayerID.PlayerOne);
         }
         else
         {
-            Instantiate(GameManager.Instance.P1Ship, m_Transforms[0].position, Quaternion.identity);
-            Instantiate(GameManager.Instance.P2Ship, m_Transforms[1].position, Quaternion.identity);
+            Instantiate(GameManager.Instance.P1Ship, m_Transforms[0].position, Quaternion.identity).GetComponent<Done_PlayerController>().Init(EPlayerID.PlayerOne);
+            Instantiate(GameManager.Instance.P2Ship, m_Transforms[1].position, Quaternion.identity).GetComponent<Done_PlayerController>().Init(EPlayerID.PlayerTwo);
         }
     }
 }
