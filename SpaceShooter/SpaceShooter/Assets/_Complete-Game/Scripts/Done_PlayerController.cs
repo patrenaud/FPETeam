@@ -21,8 +21,8 @@ public class Done_PlayerController : DamageableEntity
     [SerializeField]
     private Transform m_ShotSpawn;
 
-    private EPlayerID m_ID = (EPlayerID)1;
-    private float m_NextFire;
+    private EPlayerID m_ID = (EPlayerID)0;
+    private float m_NextFire = 0;
 
     public void Init(EPlayerID a_ID)
     {
