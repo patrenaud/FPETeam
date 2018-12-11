@@ -80,12 +80,6 @@ public class Done_GameController : MonoBehaviour
         }
     }
 
-    public void AddScore(int newScoreValue)
-    {
-        score += newScoreValue;
-        UpdateScore();
-    }
-
     void UpdateScore()
     {
         scoreText.text = "Score: " + score;
