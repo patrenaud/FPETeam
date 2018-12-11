@@ -22,8 +22,15 @@ public class Done_GameController : MonoBehaviour
 
     private int m_WaveCount = 3;
 
+    public Text Score
+    {
+        get { return scoreText; }
+        set { scoreText = value; }
+    }
+
     void Start()
     {
+        GameManager.Instance.GameController = this; 
         gameOver = false;
         restart = false;
         restartText.text = "";
