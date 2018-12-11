@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private GameObject m_P1Ship = null;
     private GameObject m_P2Ship = null;
 
+    private Done_GameController m_GameController;
+
     public int Score
     {
         get { return m_Score; }
@@ -39,6 +41,11 @@ public class GameManager : MonoBehaviour
         get { return m_P2Ship; }
         set { m_P2Ship = value; }
     }
+    public Done_GameController GameController
+    {
+        get { return m_GameController; }
+        set { m_GameController = value; }
+    }
 
     private static GameManager m_Instance;
     public static GameManager Instance
@@ -62,5 +69,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int newScoreValue)
     {
         m_Score += newScoreValue;
+        m_GameController.UpdateScore(m_Score);
+        Debug.Log(m_Score);
     }
 }

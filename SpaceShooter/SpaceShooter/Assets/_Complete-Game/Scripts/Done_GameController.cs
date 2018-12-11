@@ -22,14 +22,20 @@ public class Done_GameController : MonoBehaviour
 
     private int m_WaveCount = 3;
 
+    public Text Score
+    {
+        get { return scoreText; }
+        set { scoreText = value; }
+    }
+
     void Start()
     {
+        GameManager.Instance.GameController = this; 
         gameOver = false;
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
-        score = 0;
-        UpdateScore();
+        UpdateScore(GameManager.Instance.Score);
         StartCoroutine(SpawnWaves());
     }
 
@@ -77,9 +83,9 @@ public class Done_GameController : MonoBehaviour
         }
     }
 
-    void UpdateScore()
+    public void UpdateScore(int aScore)
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + aScore;
     }
 
     public void GameOver()
