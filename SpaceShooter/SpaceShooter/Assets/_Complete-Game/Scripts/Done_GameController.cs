@@ -63,8 +63,11 @@ public class Done_GameController : MonoBehaviour
             m_WaveCount --;
             if(m_WaveCount == 0)
             {
-                break;
-                // Return to ship selection
+                GameManager.Instance.ShipAvailable[2] = true;
+
+                LevelManager.Instance.ChangeLevel("SelectionMenu");
+
+                break;           
             }
 
 
