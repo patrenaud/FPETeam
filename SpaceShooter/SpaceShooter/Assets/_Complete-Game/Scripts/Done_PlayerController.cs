@@ -63,10 +63,9 @@ public class Done_PlayerController : DamageableEntity
         {
             if (other.tag == "Enemy")
             {
-                m_Shield = 1;
-                ReceiveHit();
+                Kill();
+                other.GetComponent<DamageableEntity>().Kill();
             }
-            Destroy(other.gameObject);
         }
     }
 }

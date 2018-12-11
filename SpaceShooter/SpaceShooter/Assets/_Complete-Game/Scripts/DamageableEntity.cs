@@ -36,4 +36,10 @@ public class DamageableEntity : MonoBehaviour
             //GameManager.Instance.AddScore(m_Score);
         }
     }
+
+    public void Kill()
+    {
+        m_Shield = 1;
+        ReceiveHit();
+    }
 }
