@@ -33,7 +33,7 @@ public class DamageableEntity : MonoBehaviour
                 GameManager.Instance.AddScore(m_Score);
 
             Destroy(gameObject);
-            //call to gamecontroller to remove himself;
+            //GameManager.Instance.AddScore(m_Score);
         }
     }
 }
