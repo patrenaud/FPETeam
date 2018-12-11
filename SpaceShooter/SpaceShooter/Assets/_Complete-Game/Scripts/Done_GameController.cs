@@ -35,8 +35,7 @@ public class Done_GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
-        score = 0;
-        UpdateScore();
+        UpdateScore(GameManager.Instance.Score);
         StartCoroutine(SpawnWaves());
     }
 
@@ -84,9 +83,9 @@ public class Done_GameController : MonoBehaviour
         }
     }
 
-    void UpdateScore()
+    public void UpdateScore(int aScore)
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + aScore;
     }
 
     public void GameOver()

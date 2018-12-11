@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int newScoreValue)
     {
         m_Score += newScoreValue;
-        m_GameController.Score.text = "Score : " + m_Score;
+        m_GameController.UpdateScore(m_Score);
         Debug.Log(m_Score);
     }
 }
