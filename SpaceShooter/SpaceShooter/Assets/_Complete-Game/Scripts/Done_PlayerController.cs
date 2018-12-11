@@ -21,8 +21,8 @@ public class Done_PlayerController : DamageableEntity
     [SerializeField]
     private Transform m_ShotSpawn;
 
-    private EPlayerID m_ID = (EPlayerID)1;
-    private float m_NextFire;
+    private EPlayerID m_ID = (EPlayerID)0;
+    private float m_NextFire = 0;
 
     public void Init(EPlayerID a_ID)
     {
@@ -55,5 +55,18 @@ public class Done_PlayerController : DamageableEntity
         );
 
         GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -m_Tilt);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Boundary")
+        {
+            if (other.tag == "Enemy")
+            {
+                m_Shield = 1;
+                ReceiveHit();
+            }
+            Destroy(other.gameObject);
+        }
     }
 }
